@@ -34,7 +34,7 @@ public void addResource(InputStream in);//4
 3.文件加载为资源
 4.一个输入流InputStream加载为资源
 
-# 三、get*和set*方法：
+# 三、get*()和set*()方法：
 Configuration中一共有21个get*方法，主要用来获取相应的配置资源：
 这些配置信息可以是boolean/int/long等基本类型。也可以是一些Hadoop的常用类型，如类的信息(getClassByName,getClass,getClasses);String数组(getStingCollection);URL(getResource)。
 
@@ -43,7 +43,9 @@ Configuration中一共有21个get*方法，主要用来获取相应的配置资�
 public String get(String name) {
   return substituteVars(getProps().getProperty(name));
 }
+````
 substituteVars方法的源码：
+```java
 private static Pattern varPat = Pattern.compile("\\$\\{[^\\}\\$\u0020]+\\}");
 private static int MAX_SUBST = 20;
 private String substituteVars(String expr) {
