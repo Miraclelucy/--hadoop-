@@ -5,8 +5,7 @@ org.apache.hadoop.conf.Configuration
 private boolean quietmode = true;//1
 private ArrayList<Object> resources = new ArrayList<Object>();//2
 private boolean loadDefaults = true;//3
-private static final CopyOnWriteArrayList<String> defaultResources =
-  new CopyOnWriteArrayList<String>();//3
+private static final CopyOnWriteArrayList<String> defaultResources =new CopyOnWriteArrayList<String>();//3
 private Set<String> finalParameters = new HashSet<String>();//4
 private Properties properties;//5
 private Properties overlay;//6
@@ -29,10 +28,10 @@ public void addResource(URL url);//2
 public void addResource(Path file);//3 
 public void addResource(InputStream in);//4
 ```
-1.Classpath资源
-2.根据路径加载资源
-3.文件加载为资源
-4.一个输入流InputStream加载为资源
+1. Classpath资源
+2. 根据路径加载资源
+3. 文件加载为资源
+4. 一个输入流InputStream加载为资源
 
 # 三、get*()和set*()方法：
 Configuration中一共有21个get*方法，主要用来获取相应的配置资源：
