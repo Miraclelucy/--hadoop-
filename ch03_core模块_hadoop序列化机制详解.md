@@ -103,8 +103,8 @@ ObjectWritable的源码：
 ```java
 public class ObjectWritable implements Writable, Configurable {
 
-  private Class declaredClass;
-  private Object instance;
+  private Class declaredClass; //该对象的运行时类
+  private Object instance; //被封装的对象示例
   private Configuration conf;
   //...省略其他代码
   public void readFields(DataInput in) throws IOException {
@@ -248,10 +248,17 @@ public class ObjectWritable implements Writable, Configurable {
   }
 }
 ```
+ObjectWritable类是一个通用的机制，相当浪费资源，它需要向每一个输出写入封装的对象类型的名字。如果类型的数量不是很多的话，而且可以事先知道，那么可以使用一个静态类型的数组，用数组的索引作为类型的序列化引用。org.apche.hadoop.io中引入就的GenericWritable实现了这一点。
 
 # 四、Writable家族
 
+
+
 # 五、序列化框架
 
+常见的是Hadoop的Writable机制，除此之外还有其他流行的序列化框架，比如：Hadoop Avro 、Apche Thrift、Google protocol buffer 
+1. Avro是数据序列化系统，应用于大批量数据的交换，可以便捷快速地处理大批量的数据
+2. Thrift是一个跨语言的服务开发框架，基于Thrift开发的Hadoop文件系统Thrift API，提供了不同语言开发的系统访问HDFS的能力
+3. Google protocol buffer是一种轻便高效的结构化数据存储格式，广泛运用于Google内部的通信和数据存储中
 
 
