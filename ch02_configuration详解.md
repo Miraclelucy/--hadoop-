@@ -12,15 +12,15 @@ private Properties properties;//5
 private Properties overlay;//6
 private ClassLoader classLoader;//7
 ```
-1.quietmode用来设置加载配置的模式，设置为true代表在加载配置信息的过程中不输出日志。
-2.resources保存了所有通过addResource方法添加的Configuration对象的资源
-3.loadDefaults确定是否加载默认资源，这些默认的资源存在defaultResources 中。
+1. quietmode用来设置加载配置的模式，设置为true代表在加载配置信息的过程中不输出日志。
+2. resources保存了所有通过addResource方法添加的Configuration对象的资源
+3. loadDefaults确定是否加载默认资源，这些默认的资源存在defaultResources 中。
 在hdfs中的默认资源是hdfs-default.xml和hdfs-site.xml;
 在mapreduce中的默认资源是mapred-default.xml和mapred-site.xml;
-4.存放所有在配置文件中已经被申明为final的键值对
-5.存放配置文件解析后的健-值对
-6.存放通过set()方式改变的健-值对
-7.类加载器变量，可以加载指定的一个类，也可以用来加载资源
+4. 存放所有在配置文件中已经被申明为final的键值对
+5. 存放配置文件解析后的健-值对
+6. 存放通过set()方式改变的健-值对
+7. 类加载器变量，可以加载指定的一个类，也可以用来加载资源
 
 # 二、addResource方法：
 ```java
