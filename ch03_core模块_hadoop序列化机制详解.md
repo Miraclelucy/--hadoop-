@@ -99,7 +99,7 @@ ObjectWritable功能：提供了一个封装，可以处理基本类型、字符
 ObjectWritable的用途：
   1. 可应用于Hadoop远程调用中参数的序列化和反序列化
   2. 序列化不同类型的对象到某一个字段，比如，在一个SequenceFile的值中保存不同类型的对象，可将对象申明为ObjectWritble
-ObjectWritable的源码： 
+  3. ObjectWritable的源码： 
 ```java
 public class ObjectWritable implements Writable, Configurable {
 
@@ -248,7 +248,7 @@ public class ObjectWritable implements Writable, Configurable {
   }
 }
 ```
-ObjectWritable类是一个通用的机制，相当浪费资源，它需要向每一个输出写入封装的对象类型的名字。如果类型的数量不是很多的话，而且可以事先知道，那么可以使用一个静态类型的数组，用数组的索引作为类型的序列化引用。org.apche.hadoop.io中引入就的GenericWritable实现了这一点。
+ObjectWritable类是一个通用的机制，相当浪费资源，它需要向每一个输出写入封装的对象类型的名字。如果类型的数量不是很多的话，而且可以事先知道，那么可以使用一个静态类型的数组，用数组的索引作为类型的序列化引用。org.apche.hadoop.io中引入的GenericWritable就实现了这一点。
 
 # 四、Writable家族
 ![image](https://github.com/Miraclelucy/funny-hadoop/blob/master/images/ch03_01.png)
