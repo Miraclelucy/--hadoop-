@@ -1,8 +1,8 @@
-一、概述
+# 一、概述
 作业提交过程中涉及三个组件：JobClient、JobTracker和TaskScheduler，他们的功能分别是准备运行环境、接收作业、以及初始化作业。
 
 
-二、作业提交详细过程
+# 二、作业提交详细过程
 JobClient将作业提交到JobTracker端之前，需要进行一些初始化的工作，包括：
   ● 获取作业ID，
   ● 创建HDFS目录，
@@ -27,7 +27,7 @@ MapReduce作业文件的上传和下载都是由DistributeCache工具完成的�
   ● 检查作业配置的内存使用量是否合理；
   ● 通知TaskSchduler初始化作业；
 
-三、作业初始化详细过程
+# 三、作业初始化详细过程
 调度器调用JobTracker.initJob()函数对作业进行初始化。初始化的主要工作是构造Map Task和Reduce Task并对他们进行初始化。
 Hadoop会将每个作业分解成4中类型的任务。分别是Setup Task、Map Task、Reduce Task、Cleanup Task。
 1 Setup Task：
@@ -39,7 +39,7 @@ Reduce阶段处理数据的任务。其数目由用户通过参数mapred.reduce.
 4 Cleanup Task：
 
 
-四、DistributeCache原理分析
+# 四、DistributeCache原理分析
 它主要的功能是将作业分发到各个TaskTracker上。具体流程分为以下4个步骤：
 
 步骤1：用户提交作业后，DistributeCache将作业上传到HDFS中的固定目录中
